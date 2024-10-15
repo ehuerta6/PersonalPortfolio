@@ -1,0 +1,1 @@
+Hello this is my personal portfolio I did with the help og the GDSC twam at Utep, using JavaScript, HTML, CSS.
