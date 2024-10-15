@@ -141,12 +141,11 @@
         );
         padding: 10rem 0 6rem;
         margin-top: 4rem;
-        clip-path: none; /* Update: Removed slanted bottom */
-        position: relative; /* Update: Added for overlay */
+        clip-path: none;
+        position: relative;
       }
 
       .hero::before {
-        /* Update: Added semi-transparent overlay */
         content: '';
         position: absolute;
         top: 0;
@@ -163,8 +162,8 @@
         align-items: center;
         text-align: center;
         gap: 2rem;
-        position: relative; /* Update: Added for overlay */
-        z-index: 2; /* Update: Added for overlay */
+        position: relative;
+        z-index: 2;
       }
 
       .hero-text {
@@ -241,12 +240,7 @@
       }
 
       .project-card {
-        background-color: rgba(
-          26,
-          26,
-          26,
-          0.7
-        ); /* Update: Added transparency */
+        background-color: rgba(26, 26, 26, 0.7);
         padding: 2rem;
         border-radius: 10px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -254,7 +248,7 @@
         position: relative;
         overflow: hidden;
         border: 1px solid var(--accent-color);
-        backdrop-filter: blur(10px); /* Update: Added backdrop filter */
+        backdrop-filter: blur(10px);
       }
 
       .project-card:hover {
@@ -370,18 +364,13 @@
       .skill-item {
         flex: 0 1 calc(33.333% - 2rem);
         max-width: 300px;
-        background-color: rgba(
-          26,
-          26,
-          26,
-          0.7
-        ); /* Update: Added transparency */
+        background-color: rgba(26, 26, 26, 0.7);
         padding: 1.5rem;
         border-radius: 10px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         transition: var(--transition);
         border: 1px solid var(--accent-color);
-        backdrop-filter: blur(10px); /* Update: Added backdrop filter */
+        backdrop-filter: blur(10px);
       }
 
       .skill-item:hover {
@@ -411,7 +400,6 @@
       }
 
       #skills {
-        /* Update: Added transparency and backdrop filter */
         background-color: rgba(0, 0, 0, 0.5);
         backdrop-filter: blur(10px);
       }
@@ -462,23 +450,64 @@
       }
 
       .descriptor-list li {
-        background-color: rgba(
-          76,
-          201,
-          240,
-          0.1
-        ); /* Update: Changed background color */
-        color: var(--text-color); /* Update: Changed text color */
+        background-color: rgba(76, 201, 240, 0.1);
+        color: var(--text-color);
         padding: 0.25rem 0.75rem;
         border-radius: 15px;
         font-size: 0.9rem;
         border: 1px solid var(--accent-color);
-        backdrop-filter: blur(5px); /* Update: Added backdrop filter */
+        backdrop-filter: blur(5px);
+      }
+
+      /* New styles for enhanced list bullets */
+      .fun-facts ul,
+      .future-plans-content ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .fun-facts li,
+      .future-plans-content li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 15px;
+        line-height: 1.4;
+      }
+
+      .fun-facts li::before,
+      .future-plans-content li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-size: 1.5em;
+        line-height: 1;
+        transition: transform 0.3s ease;
+      }
+
+      .fun-facts li:hover::before,
+      .future-plans-content li:hover::before {
+        transform: scale(1.2) rotate(360deg);
+      }
+
+      /* Adjust existing styles */
+      .fun-facts,
+      .future-plans-content {
+        background-color: rgba(26, 26, 26, 0.7);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--accent-color);
+        text-align: left;
+      }
+
+      #fun-facts,
+      #future-plans {
+        background-color: var(--background-color);
       }
     </style>
-    <script src="https://unpkg.com/scrollreveal"></script>
   </head>
-
   <body>
     <header>
       <div class="container">
@@ -490,6 +519,7 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#fun-facts">Fun Facts</a></li>
+            <li><a href="#future-plans">Future Plans</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -664,6 +694,41 @@
         </div>
       </section>
 
+      <section id="future-plans">
+        <div class="container">
+          <h2>Future Implementations</h2>
+          <div class="future-plans-content">
+            <p>
+              I'm excited to announce my plans for enhancing this portfolio
+              website:
+            </p>
+            <ul>
+              <li>
+                Migrating the entire project to React for improved interactivity
+                and component-based architecture
+              </li>
+              <li>
+                Implementing Tailwind CSS for more efficient and customizable
+                styling
+              </li>
+              <li>
+                Adding more dynamic content and interactive elements to showcase
+                my projects
+              </li>
+              <li>
+                Implementing a blog section to share my thoughts and experiences
+                in tech
+              </li>
+              <li>
+                Optimizing performance and accessibility for an even better user
+                experience
+              </li>
+            </ul>
+            <p>Stay tuned for these exciting updates!</p>
+          </div>
+        </div>
+      </section>
+
       <section id="contact">
         <div class="container">
           <h2>Get In Touch</h2>
@@ -703,7 +768,7 @@
 
     <script>
       ScrollReveal().reveal(
-        '.hero-content, .project-card, .contact-item, .fun-facts, .skill-item',
+        '.hero-content, .project-card, .contact-item, .fun-facts, .skill-item, .future-plans-content',
         {
           delay: 200,
           distance: '50px',
