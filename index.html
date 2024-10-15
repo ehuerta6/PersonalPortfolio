@@ -430,13 +430,29 @@
       }
 
       .future-plans-content ul {
-        text-align: left;
-        margin-left: 2rem;
-        margin-bottom: 1rem;
+        list-style: none;
+        padding-left: 0;
       }
 
       .future-plans-content li {
-        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 15px;
+        line-height: 1.4;
+      }
+
+      .future-plans-content li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-size: 1.5em;
+        line-height: 1;
+        transition: transform 0.3s ease;
+      }
+
+      .future-plans-content li:hover::before {
+        transform: scale(1.2) rotate(360deg);
       }
 
       @media (max-width: 768px) {
@@ -743,24 +759,11 @@
             <ul>
               <li>
                 Migrating the entire project to React for improved interactivity
-                and component-based architecture
               </li>
-              <li>
-                Implementing Tailwind CSS for more efficient and customizable
-                styling
-              </li>
-              <li>
-                Adding more dynamic content and interactive elements to showcase
-                my projects
-              </li>
-              <li>
-                Implementing a blog section to share my thoughts and experiences
-                in tech
-              </li>
-              <li>
-                Optimizing performance and accessibility for an even better user
-                experience
-              </li>
+              <li>Implementing Tailwind CSS for customizable styling</li>
+              <li>Adding more dynamic content</li>
+              <li>Implementing a blog section</li>
+              <li>Optimizing performance and accessibility</li>
             </ul>
             <p>Stay tuned for these exciting updates!</p>
           </div>
@@ -806,7 +809,7 @@
 
     <script>
       ScrollReveal().reveal(
-        '.hero-content, .project-card, .contact-item, .fun-facts, .skill-item',
+        '.hero-content, .project-card, .contact-item, .fun-facts, .skill-item, .future-plans-content',
         {
           delay: 200,
           distance: '50px',
