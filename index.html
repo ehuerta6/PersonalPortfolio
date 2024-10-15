@@ -141,11 +141,12 @@
         );
         padding: 10rem 0 6rem;
         margin-top: 4rem;
-        clip-path: none;
-        position: relative;
+        clip-path: none; /* Update: Removed slanted bottom */
+        position: relative; /* Update: Added for overlay */
       }
 
       .hero::before {
+        /* Update: Added semi-transparent overlay */
         content: '';
         position: absolute;
         top: 0;
@@ -162,8 +163,8 @@
         align-items: center;
         text-align: center;
         gap: 2rem;
-        position: relative;
-        z-index: 2;
+        position: relative; /* Update: Added for overlay */
+        z-index: 2; /* Update: Added for overlay */
       }
 
       .hero-text {
@@ -240,7 +241,12 @@
       }
 
       .project-card {
-        background-color: rgba(26, 26, 26, 0.7);
+        background-color: rgba(
+          26,
+          26,
+          26,
+          0.7
+        ); /* Update: Added transparency */
         padding: 2rem;
         border-radius: 10px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -248,7 +254,7 @@
         position: relative;
         overflow: hidden;
         border: 1px solid var(--accent-color);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px); /* Update: Added backdrop filter */
       }
 
       .project-card:hover {
@@ -364,13 +370,18 @@
       .skill-item {
         flex: 0 1 calc(33.333% - 2rem);
         max-width: 300px;
-        background-color: rgba(26, 26, 26, 0.7);
+        background-color: rgba(
+          26,
+          26,
+          26,
+          0.7
+        ); /* Update: Added transparency */
         padding: 1.5rem;
         border-radius: 10px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         transition: var(--transition);
         border: 1px solid var(--accent-color);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px); /* Update: Added backdrop filter */
       }
 
       .skill-item:hover {
@@ -400,8 +411,32 @@
       }
 
       #skills {
+        /* Update: Added transparency and backdrop filter */
         background-color: rgba(0, 0, 0, 0.5);
         backdrop-filter: blur(10px);
+      }
+
+      #future-plans {
+        background-color: var(--card-background);
+      }
+
+      .future-plans-content {
+        background-color: rgba(26, 26, 26, 0.7);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--accent-color);
+      }
+
+      .future-plans-content ul {
+        text-align: left;
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .future-plans-content li {
+        margin-bottom: 0.5rem;
       }
 
       @media (max-width: 768px) {
@@ -450,16 +485,20 @@
       }
 
       .descriptor-list li {
-        background-color: rgba(76, 201, 240, 0.1);
-        color: var(--text-color);
+        background-color: rgba(
+          76,
+          201,
+          240,
+          0.1
+        ); /* Update: Changed background color */
+        color: var(--text-color); /* Update: Changed text color */
         padding: 0.25rem 0.75rem;
         border-radius: 15px;
         font-size: 0.9rem;
         border: 1px solid var(--accent-color);
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px); /* Update: Added backdrop filter */
       }
 
-      /* New styles for enhanced list bullets */
       .fun-facts ul,
       .future-plans-content ul {
         list-style: none;
@@ -507,7 +546,9 @@
         background-color: var(--background-color);
       }
     </style>
+    <script src="https://unpkg.com/scrollreveal"></script>
   </head>
+
   <body>
     <header>
       <div class="container">
@@ -519,7 +560,6 @@
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#fun-facts">Fun Facts</a></li>
-            <li><a href="#future-plans">Future Plans</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -682,9 +722,7 @@
               <li>I like to platinum all my videogames.</li>
               <li>I'm a Taekwondo Panamerican Champion!</li>
               <li>I'm a huge fan of horror and comedy movies.</li>
-              <li>
-                I once built a computer from scratch using recycled parts.
-              </li>
+              <li>When I like something, I practice until I'm a pro.</li>
               <li>
                 I can speak three languages fluently: English, Spanish, and
                 Java!
@@ -768,7 +806,7 @@
 
     <script>
       ScrollReveal().reveal(
-        '.hero-content, .project-card, .contact-item, .fun-facts, .skill-item, .future-plans-content',
+        '.hero-content, .project-card, .contact-item, .fun-facts, .skill-item',
         {
           delay: 200,
           distance: '50px',
