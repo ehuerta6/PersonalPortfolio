@@ -309,33 +309,61 @@ section h2::after {
 }
 
 #contact {
-  background-color: var(--background-color);
+  background-color: #000;
+  color: #fff;
+  padding: 4rem 0;
 }
 
-.contact-info {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.contact-item {
+#contact .container {
   text-align: center;
 }
 
-.contact-item h3 {
-  margin-bottom: 0.5rem;
+#contact h2 {
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
 }
 
-.email a {
-  color: var(--accent-color);
+.contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 4rem; /* Increased gap between items */
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
   text-decoration: none;
-  font-weight: bold;
-  transition: var(--transition);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.email a:hover {
-  color: var(--secondary-color);
+.contact-item:hover {
+  transform: translateY(-5px);
+  color: #007bff;
+}
+
+.contact-item i {
+  font-size: 2.5rem; /* Slightly smaller icon size */
+  margin-bottom: 1rem; /* Increased space between icon and text */
+}
+
+.contact-item span {
+  font-size: 1rem; /* Slightly smaller text size */
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem; /* Adjusted gap for mobile */
+  }
+
+  .contact-item i {
+    font-size: 2rem; /* Even smaller icons on mobile */
+  }
 }
 
 footer {
@@ -669,17 +697,49 @@ footer {
 }
 
 /* Header styles */
+header {
+  background-color: #000;
+}
+
 header h1 a {
-  color: #fff; /* Make name in header white */
+  color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 header h1 a:hover {
-  color: #007bff; /* Blue color on hover */
+  color: #007bff;
 }
 
-/* Button styles */
+header nav ul li a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #007bff;
+}
+
+header nav ul li a i {
+  margin-right: 0.5rem;
+}
+
+/* Contact section styles */
+#contact .container {
+  text-align: center;
+}
+
+#contact .cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
 .button {
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
@@ -688,7 +748,6 @@ header h1 a:hover {
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
-  margin: 0.5rem;
 }
 
 .button i {
@@ -715,14 +774,6 @@ header h1 a:hover {
 .secondary-button:hover {
   background-color: #007bff;
   color: white;
-}
-
-/* Contact section styles */
-#contact .cta-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
 }
 
 /* Fun Facts and Future Implementations styles */
