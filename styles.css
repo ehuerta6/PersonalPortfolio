@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-  --primary-color: #3a0ca3;
-  --secondary-color: #4361ee;
-  --accent-color: #4cc9f0;
-  --background-color: #000000;
-  --text-color: #ffffff;
-  --card-background: #1a1a1a;
-  --transition: all 0.3s ease;
+  --primary-color: #ffffff;
+  --secondary-color: #f8f9fa;
+  --accent-color: #007bff;
+  --text-color: #333333;
+  --text-color-light: #ffffff;
 }
 
 html {
@@ -15,12 +13,12 @@ html {
 }
 
 body {
-  font-family: 'Poppins', Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 0;
   color: var(--text-color);
-  background-color: var(--background-color);
+  background-color: var(--primary-color);
   background-image: radial-gradient(
       at 40% 20%,
       hsla(228, 100%, 74%, 0.1) 0px,
@@ -42,14 +40,10 @@ body {
 }
 
 header {
-  background-color: #000; /* Ensure header background is black */
-  backdrop-filter: blur(10px);
-  color: #fff;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header .container {
@@ -309,9 +303,8 @@ section h2::after {
 }
 
 #contact {
-  background-color: #000;
-  color: #fff;
-  padding: 4rem 0;
+  background-color: white;
+  color: #333; /* Adjust this color to ensure good contrast with the white background */
 }
 
 #contact .container {
@@ -321,6 +314,7 @@ section h2::after {
 #contact h2 {
   margin-bottom: 3rem;
   font-size: 2.5rem;
+  color: #007bff; /* You can adjust this color to match your design */
 }
 
 .contact-grid {
@@ -334,14 +328,14 @@ section h2::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fff;
+  color: #333; /* Adjust this color for better visibility on white background */
   text-decoration: none;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .contact-item:hover {
   transform: translateY(-5px);
-  color: #007bff;
+  color: #007bff; /* Adjust hover color as needed */
 }
 
 .contact-item i {
@@ -367,8 +361,8 @@ section h2::after {
 }
 
 footer {
-  background-color: var(--card-background);
-  color: #fff;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
   text-align: center;
   padding: 2rem 0;
 }
@@ -779,8 +773,8 @@ header nav ul li a i {
 /* Fun Facts and Future Implementations styles */
 #future-implementations,
 #fun-facts {
-  background-color: #000; /* Keep the background black */
-  color: #fff; /* White text for better contrast */
+  background-color: var(--secondary-color); /* Light background */
+  color: var(--text-color); /* Dark text for contrast */
 }
 
 .color-blocks {
@@ -792,51 +786,171 @@ header nav ul li a i {
 }
 
 .color-block {
-  color: #fff; /* White text */
+  background-color: var(--primary-color); /* White background */
+  color: var(--text-color); /* Dark text */
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex: 1 1 calc(50% - 1rem);
   min-width: 200px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease,
-    background-color 0.3s ease;
-  border: 1px solid #fff;
-}
-
-.color-block:nth-child(6n + 1) {
-  background-color: rgba(0, 41, 102, 0.8);
-}
-.color-block:nth-child(6n + 2) {
-  background-color: rgba(0, 61, 128, 0.8);
-}
-.color-block:nth-child(6n + 3) {
-  background-color: rgba(0, 82, 153, 0.8);
-}
-.color-block:nth-child(6n + 4) {
-  background-color: rgba(0, 102, 179, 0.8);
-}
-.color-block:nth-child(6n + 5) {
-  background-color: rgba(0, 123, 204, 0.8);
-}
-.color-block:nth-child(6n) {
-  background-color: rgba(0, 143, 230, 0.8);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--accent-color);
 }
 
 .color-block:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-  filter: brightness(1.1); /* Slightly brighten on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Remove the different background colors for each block */
+.color-block:nth-child(6n + 1),
+.color-block:nth-child(6n + 2),
+.color-block:nth-child(6n + 3),
+.color-block:nth-child(6n + 4),
+.color-block:nth-child(6n + 5),
+.color-block:nth-child(6n) {
+  background-color: var(--primary-color);
+}
+
+/* Skills section styles */
+#skills {
+  background-color: var(--secondary-color);
+}
+
+.skill-item {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: 1px solid var(--accent-color);
+}
+
+.skill-icon {
+  color: var(--accent-color);
+}
+
+.skill-progress {
+  background-color: #e9ecef; /* Light gray background for progress bar */
+}
+
+.skill-bar {
+  background-color: var(--accent-color);
+}
+
+/* Ensure text is visible in all sections */
 #future-implementations h2,
 #fun-facts h2,
-.fun-facts h3 {
-  color: #fff; /* White color for headings */
-  margin-bottom: 1rem;
+.fun-facts h3,
+#skills h2,
+.skill-item h3 {
+  color: var(--text-color);
 }
 
 #future-implementations p,
-#fun-facts p {
-  color: #fff; /* White color for paragraphs */
-  margin-bottom: 1rem;
+#fun-facts p,
+.skill-item p {
+  color: var(--text-color);
+}
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px; /* Reduced from 50px */
+  height: 40px; /* Reduced from 50px */
+  font-size: 18px; /* Reduced from 24px */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s, visibility 0.5s; /* Increased duration for slower fade */
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.scroll-to-top-btn:hover {
+  background-color: #0056b3;
+}
+
+.scroll-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Add this new keyframe animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modify the .show class to use the new animation */
+.scroll-to-top-btn.show {
+  display: flex;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Add this new style for section dividers */
+section:not(:last-of-type) {
+  position: relative;
+}
+
+section:not(:last-of-type)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 123, 255, 0.3),
+    transparent
+  );
+}
+
+/* Add these new styles for alternating section backgrounds */
+section:nth-child(odd) {
+  background-color: white;
+  color: var(--text-color);
+}
+
+section:nth-child(even) {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  background-image: radial-gradient(
+      at 40% 20%,
+      hsla(228, 100%, 74%, 0.1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 0.1) 0px, transparent 50%);
+}
+
+/* Adjust specific sections if needed */
+#contact {
+  background-color: white !important;
+  color: var(--text-color) !important;
+}
+
+#skills,
+#projects {
+  color: var(--text-color-light) !important;
+}
+
+/* Update text colors for better visibility */
+section:nth-child(odd) h2,
+section:nth-child(even) h2 {
+  color: var(--accent-color);
 }
