@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Emiliano's Website Portfolio</title>
+    <title>Emiliano's Portfolio</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -39,7 +39,7 @@
               <a href="#fun-facts"><i class="fas fa-smile"></i> Fun Facts</a>
             </li>
             <li>
-              <a href="#contact"><i class="fas fa-envelope"></i> Contact Me</a>
+              <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
             </li>
           </ul>
         </nav>
@@ -53,7 +53,7 @@
             <div class="hero-text">
               <h1>Hey! I'm Emiliano Huerta</h1>
               <div class="animated-subtitle-wrapper">
-                <p>I'm a <span id="typed-text" class="typed-text"></span></p>
+                <p>I'm a/an <span id="typed-text" class="typed-text"></span></p>
               </div>
               <div class="descriptor-grid">
                 <span class="descriptor">CS Major</span>
@@ -289,6 +289,15 @@
       </div>
     </footer>
 
+    <!-- Add this button just before the closing body tag -->
+    <button
+      id="scrollToTopBtn"
+      class="scroll-to-top-btn"
+      aria-label="Scroll to top"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
       ScrollReveal().reveal(
         '.hero-content, .project-card, .contact-item, .fun-facts, .skill-item, .future-plans-content',
@@ -379,6 +388,28 @@
 
         typeText();
       });
+
+      // Add this new code at the end of your script
+      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+      const header = document.querySelector('header');
+
+      function toggleScrollToTopButton() {
+        const headerRect = header.getBoundingClientRect();
+        if (headerRect.bottom <= 0) {
+          scrollToTopBtn.classList.add('show');
+        } else {
+          scrollToTopBtn.classList.remove('show');
+        }
+      }
+
+      scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      });
+
+      window.addEventListener('scroll', toggleScrollToTopButton);
     </script>
   </body>
 </html>
