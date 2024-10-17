@@ -954,3 +954,146 @@ section:nth-child(odd) h2,
 section:nth-child(even) h2 {
   color: var(--accent-color);
 }
+
+/* Mobile-first approach */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  header {
+    padding: 10px 0;
+  }
+
+  header .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-image {
+    margin-bottom: 20px;
+  }
+
+  .hero-image img {
+    max-width: 200px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-buttons .button {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .descriptor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills {
+    grid-template-columns: 1fr;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .color-blocks {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #scrollToTopBtn {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+/* Tablet and larger screens */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+
+  .hero-content {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .descriptor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .color-blocks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile menu styles */
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  #nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #nav-menu.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #nav-menu li {
+    margin: 10px 0;
+  }
+}

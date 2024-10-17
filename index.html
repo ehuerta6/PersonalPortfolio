@@ -17,7 +17,10 @@
       <div class="container">
         <h1><a href="#home">Emiliano Huerta</a></h1>
         <nav>
-          <ul>
+          <button id="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul id="nav-menu">
             <li>
               <a href="#home"><i class="fas fa-home"></i> Home</a>
             </li>
@@ -32,7 +35,7 @@
             </li>
             <li>
               <a href="#future-implementations"
-                ><i class="fas fa-rocket"></i> Future Implementations</a
+                ><i class="fas fa-rocket"></i> Future</a
               >
             </li>
             <li>
@@ -410,6 +413,21 @@
       });
 
       window.addEventListener('scroll', toggleScrollToTopButton);
+
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+      });
+
+      // Close menu when a link is clicked
+      navMenu.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+          navMenu.classList.remove('show');
+        }
+      });
     </script>
   </body>
 </html>
