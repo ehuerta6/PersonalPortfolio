@@ -42,7 +42,7 @@ body {
 }
 
 header {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #000; /* Ensure header background is black */
   backdrop-filter: blur(10px);
   color: #fff;
   position: fixed;
@@ -147,7 +147,7 @@ nav a:hover::after {
 
 .descriptor {
   background-color: #e9ecef;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   border-radius: 20px;
   font-size: 0.9rem;
   text-align: center;
@@ -156,6 +156,8 @@ nav a:hover::after {
   align-items: center;
   justify-content: center;
   height: 100%;
+  min-height: 60px; /* Adjust this value as needed */
+  box-sizing: border-box;
 }
 
 .cta-buttons {
@@ -307,33 +309,61 @@ section h2::after {
 }
 
 #contact {
-  background-color: var(--background-color);
+  background-color: #000;
+  color: #fff;
+  padding: 4rem 0;
 }
 
-.contact-info {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.contact-item {
+#contact .container {
   text-align: center;
 }
 
-.contact-item h3 {
-  margin-bottom: 0.5rem;
+#contact h2 {
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
 }
 
-.email a {
-  color: var(--accent-color);
+.contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 4rem; /* Increased gap between items */
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
   text-decoration: none;
-  font-weight: bold;
-  transition: var(--transition);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.email a:hover {
-  color: var(--secondary-color);
+.contact-item:hover {
+  transform: translateY(-5px);
+  color: #007bff;
+}
+
+.contact-item i {
+  font-size: 2.5rem; /* Slightly smaller icon size */
+  margin-bottom: 1rem; /* Increased space between icon and text */
+}
+
+.contact-item span {
+  font-size: 1rem; /* Slightly smaller text size */
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem; /* Adjusted gap for mobile */
+  }
+
+  .contact-item i {
+    font-size: 2rem; /* Even smaller icons on mobile */
+  }
 }
 
 footer {
@@ -664,4 +694,149 @@ footer {
   .descriptor-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
   }
+}
+
+/* Header styles */
+header {
+  background-color: #000;
+}
+
+header h1 a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header h1 a:hover {
+  color: #007bff;
+}
+
+header nav ul li a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #007bff;
+}
+
+header nav ul li a i {
+  margin-right: 0.5rem;
+}
+
+/* Contact section styles */
+#contact .container {
+  text-align: center;
+}
+
+#contact .cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.button i {
+  margin-right: 0.5rem;
+}
+
+.primary-button {
+  background-color: #007bff;
+  color: white;
+  border: 2px solid #007bff;
+}
+
+.primary-button:hover {
+  background-color: transparent;
+  color: #007bff;
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.secondary-button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Fun Facts and Future Implementations styles */
+#future-implementations,
+#fun-facts {
+  background-color: #000; /* Keep the background black */
+  color: #fff; /* White text for better contrast */
+}
+
+.color-blocks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.color-block {
+  color: #fff; /* White text */
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  flex: 1 1 calc(50% - 1rem);
+  min-width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  border: 1px solid #fff;
+}
+
+.color-block:nth-child(6n + 1) {
+  background-color: rgba(0, 41, 102, 0.8);
+}
+.color-block:nth-child(6n + 2) {
+  background-color: rgba(0, 61, 128, 0.8);
+}
+.color-block:nth-child(6n + 3) {
+  background-color: rgba(0, 82, 153, 0.8);
+}
+.color-block:nth-child(6n + 4) {
+  background-color: rgba(0, 102, 179, 0.8);
+}
+.color-block:nth-child(6n + 5) {
+  background-color: rgba(0, 123, 204, 0.8);
+}
+.color-block:nth-child(6n) {
+  background-color: rgba(0, 143, 230, 0.8);
+}
+
+.color-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  filter: brightness(1.1); /* Slightly brighten on hover */
+}
+
+#future-implementations h2,
+#fun-facts h2,
+.fun-facts h3 {
+  color: #fff; /* White color for headings */
+  margin-bottom: 1rem;
+}
+
+#future-implementations p,
+#fun-facts p {
+  color: #fff; /* White color for paragraphs */
+  margin-bottom: 1rem;
 }
