@@ -99,81 +99,133 @@ nav a:hover::after {
 }
 
 .hero {
-  background: linear-gradient(
-    135deg,
-    var(--primary-color),
-    var(--secondary-color)
-  );
-  padding: 10rem 0 6rem;
-  margin-top: 4rem;
-  clip-path: none; /* Update: Removed slanted bottom */
-  position: relative; /* Update: Added for overlay */
-}
-
-.hero::before {
-  /* Update: Added semi-transparent overlay */
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
 }
 
 .hero-content {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
+  justify-content: space-between;
   gap: 2rem;
-  position: relative; /* Update: Added for overlay */
-  z-index: 2; /* Update: Added for overlay */
 }
 
 .hero-text {
-  max-width: 600px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.hero-image {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid var(--accent-color);
-  box-shadow: 0 0 20px rgba(76, 201, 240, 0.3);
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
-.hero-image img {
+.animated-subtitle-wrapper {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.typed-text {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.descriptor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition);
 }
 
-.hero-image:hover img {
-  transform: scale(1.1);
+.descriptor {
+  background-color: #e9ecef;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #495057;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .button {
-  display: inline-block;
-  background-color: var(--accent-color);
-  color: var(--background-color);
   padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: bold;
   text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: var(--transition);
-  border: 2px solid var(--accent-color);
-  margin: 0.5rem;
+  transition: all 0.3s ease;
 }
 
-.button:hover {
+.primary-button {
+  background-color: #007bff;
+  color: white;
+  border: 2px solid #007bff;
+}
+
+.primary-button:hover {
   background-color: transparent;
-  color: var(--accent-color);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(76, 201, 240, 0.2);
+  color: #007bff;
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+}
+
+.secondary-button:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.hero-image {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column-reverse;
+  }
+
+  .hero-image {
+    margin-bottom: 2rem;
+  }
+
+  .hero-image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .descriptor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 section {
@@ -521,4 +573,95 @@ footer {
 #fun-facts,
 #future-plans {
   background-color: var(--background-color);
+}
+
+.future-plans-content,
+.fun-facts {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.color-blocks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.color-block {
+  background-color: #f0f0f0; /* Light gray background */
+  color: #333; /* Dark text color */
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(50% - 1rem); /* Two columns on larger screens */
+  min-width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.color-block:nth-child(3n + 1) {
+  background-color: #e6f3ff; /* Light blue */
+}
+
+.color-block:nth-child(3n + 2) {
+  background-color: #fff0e6; /* Light orange */
+}
+
+.color-block:nth-child(3n + 3) {
+  background-color: #e6ffe6; /* Light green */
+}
+
+.color-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#future-implementations h2,
+#fun-facts h2,
+.fun-facts h3 {
+  margin-bottom: 1rem;
+}
+
+#future-implementations p,
+#fun-facts p {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .color-block {
+    flex: 1 1 100%; /* Full width on smaller screens */
+  }
+}
+
+.descriptor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for equal distribution */
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.descriptor {
+  background-color: #e9ecef;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #495057;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Ensure all descriptors have the same height */
+}
+
+@media (max-width: 768px) {
+  .hero-image img {
+    width: 200px; /* Smaller on mobile */
+    height: 200px;
+  }
+
+  .descriptor-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+  }
 }

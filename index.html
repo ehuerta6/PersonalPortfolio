@@ -22,6 +22,9 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li>
+              <a href="#future-implementations">Future Implementations</a>
+            </li>
             <li><a href="#fun-facts">Fun Facts</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -34,29 +37,28 @@
         <div class="container">
           <div class="hero-content">
             <div class="hero-text">
-              <h2>Welcome to my Portfolio!</h2>
+              <h1>Hey! I'm Emiliano Huerta</h1>
               <div class="animated-subtitle-wrapper">
-                <p>I'm Emiliano Huerta, and I'm a</p>
-                <div class="animated-subtitle">
-                  <span class="active">Problem Solver</span>
-                  <span>CS Student</span>
-                  <span>Web Developer</span>
-                  <span>Tech Enthusiast</span>
-                  <span>Innovator</span>
-                </div>
-                <ul class="descriptor-list">
-                  <li>CS Major</li>
-                  <li>Mathematics Minor</li>
-                  <li>Software Engineer</li>
-                  <li>Full-Stack Developer</li>
-                  <li>Algorithm Enthusiast</li>
-                  <li>Open Source Contributor</li>
-                  <li>AI & ML Enthusiast</li>
-                  <li>Hackathon Participant</li>
-                </ul>
+                <p>I'm a <span id="typed-text" class="typed-text"></span></p>
               </div>
-              <a href="#projects" class="button">Explore My Work</a>
-              <a href="/resume.pdf" class="button" download>Download Resume</a>
+              <div class="descriptor-grid">
+                <span class="descriptor">CS Major</span>
+                <span class="descriptor">Mathematics Minor</span>
+                <span class="descriptor">Software Engineer</span>
+                <span class="descriptor">Full-Stack Developer</span>
+                <span class="descriptor">Algorithm Enthusiast</span>
+                <span class="descriptor">Open Source Contributor</span>
+                <span class="descriptor">AI & ML Enthusiast</span>
+                <span class="descriptor">Hackathon Participant</span>
+              </div>
+              <div class="cta-buttons">
+                <a href="#projects" class="button primary-button"
+                  >Explore My Work</a
+                >
+                <a href="/resume.pdf" class="button secondary-button" download
+                  >Download Resume</a
+                >
+              </div>
             </div>
             <div class="hero-image">
               <img src="MYPFP.jpeg" alt="Emiliano Huerta" />
@@ -176,26 +178,7 @@
         </div>
       </section>
 
-      <section id="fun-facts">
-        <div class="container">
-          <h2>Fun Facts About Me</h2>
-          <div class="fun-facts">
-            <h3>Did you know?</h3>
-            <ul>
-              <li>I like to platinum all my videogames.</li>
-              <li>I'm a Taekwondo Panamerican Champion!</li>
-              <li>I'm a huge fan of horror and comedy movies.</li>
-              <li>When I like something, I practice until I'm a pro.</li>
-              <li>
-                I can speak three languages fluently: English, Spanish, and
-                Java!
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="future-plans">
+      <section id="future-implementations">
         <div class="container">
           <h2>Future Implementations</h2>
           <div class="future-plans-content">
@@ -203,29 +186,56 @@
               I'm excited to announce my plans for enhancing this portfolio
               website:
             </p>
-            <ul>
-              <li>
+            <div class="color-blocks">
+              <div class="color-block">
                 Migrating the entire project to React for improved interactivity
                 and component-based architecture
-              </li>
-              <li>
+              </div>
+              <div class="color-block">
                 Implementing Tailwind CSS for more efficient and customizable
                 styling
-              </li>
-              <li>
+              </div>
+              <div class="color-block">
                 Adding more dynamic content and interactive elements to showcase
                 my projects
-              </li>
-              <li>
+              </div>
+              <div class="color-block">
                 Implementing a blog section to share my thoughts and experiences
                 in tech
-              </li>
-              <li>
+              </div>
+              <div class="color-block">
                 Optimizing performance and accessibility for an even better user
                 experience
-              </li>
-            </ul>
+              </div>
+            </div>
             <p>Stay tuned for these exciting updates!</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="fun-facts">
+        <div class="container">
+          <h2>Fun Facts About Me</h2>
+          <div class="fun-facts">
+            <h3>Did you know?</h3>
+            <div class="color-blocks">
+              <div class="color-block">
+                I like to platinum all my videogames.
+              </div>
+              <div class="color-block">
+                I'm a Taekwondo Panamerican Champion!
+              </div>
+              <div class="color-block">
+                I'm a huge fan of horror and comedy movies.
+              </div>
+              <div class="color-block">
+                When I like something, I practice until I'm a pro.
+              </div>
+              <div class="color-block">
+                I can speak three languages fluently: English, Spanish, and
+                Java!
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -309,6 +319,53 @@
         setTimeout(() => {
           bar.style.width = targetWidth;
         }, 500);
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const phrases = [
+          'Problem Solver',
+          'CS Student',
+          'Web Developer',
+          'Tech Enthusiast',
+          'Innovator',
+        ];
+        const typedTextElement = document.getElementById('typed-text');
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function typeText() {
+          const currentPhrase = phrases[phraseIndex];
+
+          if (isDeleting) {
+            typedTextElement.textContent = currentPhrase.substring(
+              0,
+              charIndex - 1
+            );
+            charIndex--;
+            typingSpeed = 50;
+          } else {
+            typedTextElement.textContent = currentPhrase.substring(
+              0,
+              charIndex + 1
+            );
+            charIndex++;
+            typingSpeed = 100;
+          }
+
+          if (!isDeleting && charIndex === currentPhrase.length) {
+            isDeleting = true;
+            typingSpeed = 1000; // Pause before deleting
+          } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+          }
+
+          setTimeout(typeText, typingSpeed);
+        }
+
+        typeText();
       });
     </script>
   </body>
