@@ -113,4 +113,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   typeText();
+
+  const modals = {
+    wordle: document.getElementById('wordleModal'),
+    gacha: document.getElementById('gachaModal'),
+  };
+
+  const aboutButtons = document.querySelectorAll('.about-project-btn');
+  const closeButtons = document.querySelectorAll('.close');
+
+  aboutButtons.forEach((button) => {
+    button.addEventListener('click', function () {
+      const projectType = this.getAttribute('data-project');
+      modals[projectType].style.display = 'block';
+    });
+  });
+
+  closeButtons.forEach((button) => {
+    button.addEventListener('click', function () {
+      this.closest('.modal').style.display = 'none';
+    });
+  });
+
+  window.addEventListener('click', function (event) {
+    if (event.target.classList.contains('modal')) {
+      event.target.style.display = 'none';
+    }
+  });
 });
