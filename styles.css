@@ -292,43 +292,44 @@ section h2::after {
 }
 
 .project-card {
-  background-color: rgba(26, 26, 26, 0.7); /* Update: Added transparency */
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: var(--transition);
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--accent-color);
-  backdrop-filter: blur(10px); /* Update: Added backdrop filter */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 16 / 9; /* This will maintain a consistent aspect ratio */
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .project-image {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 5px;
-  margin-bottom: 1rem;
+  height: 100%;
+  object-fit: cover; /* This will ensure the image covers the entire card */
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  filter: brightness(0.7);
 }
 
 .project-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(67, 97, 238, 0.9);
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: var(--transition);
+  transition: opacity 0.3s ease;
 }
 
 .project-card:hover .project-overlay {
@@ -338,6 +339,42 @@ section h2::after {
 .project-overlay h3 {
   color: #fff;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.view-project-btn {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.view-project-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.view-project-btn:hover {
+  color: #000;
+}
+
+.view-project-btn:hover::before {
+  left: 0;
 }
 
 #contact {

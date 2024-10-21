@@ -9,9 +9,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
   </head>
-
   <body>
     <header>
       <div class="container">
@@ -88,11 +87,19 @@
         <div class="container">
           <h2>About Me</h2>
           <p>
-            As a Computer Science student at the University of Texas at El Paso,
-            I'm constantly pushing the boundaries of what's possible in software
-            development. My journey in tech is driven by a curiosity to solve
-            complex problems and create user-friendly applications that make a
-            difference.
+            Hi, I’m Emiliano, a second-year computer science student at the
+            University of Texas at El Paso (UTEP), constantly pushing the
+            boundaries of what's possible in software development. I’m
+            passionate about both software engineering and web development, with
+            a strong proficiency in Java, JavaScript, HTML, CSS, and React. My
+            journey in tech is driven by a curiosity to solve complex problems
+            and create user-friendly applications that make a difference. I
+            enjoy breaking problems down step by step, using visual approaches
+            to better understand solutions, and always considering time
+            complexity for efficiency. Through participating in hackathons and
+            being involved in clubs like FOSS, Coding Interview Club, and Google
+            Student Club, I’m continually sharpening my technical skills and
+            preparing for a career in tech.
           </p>
         </div>
       </section>
@@ -161,7 +168,7 @@
                 <h3>Wordle Game</h3>
                 <a
                   href="https://github.com/ehuerta6/WordleGame"
-                  class="button"
+                  class="view-project-btn"
                   target="_blank"
                   >View Project</a
                 >
@@ -169,26 +176,15 @@
             </div>
 
             <div class="project-card">
-              <img
-                src="/placeholder.svg?height=200&width=300"
-                alt="AI-Powered Study Planner"
-                class="project-image"
-              />
+              <img src="GachaGame.png" alt="Gacha Game" class="project-image" />
               <div class="project-overlay">
-                <h3>AI-Powered Study Planner</h3>
-                <a href="#" class="button">View Project</a>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <img
-                src="/placeholder.svg?height=200&width=300"
-                alt="Eco-Route: Green Navigation App"
-                class="project-image"
-              />
-              <div class="project-overlay">
-                <h3>Eco-Route: Green Navigation App</h3>
-                <a href="#" class="button">View Project</a>
+                <h3>Gacha Game</h3>
+                <a
+                  href="https://github.com/ehuerta6/GachaGame"
+                  class="view-project-btn"
+                  target="_blank"
+                  >View Project</a
+                >
               </div>
             </div>
           </div>
@@ -203,28 +199,32 @@
               I'm excited to announce my plans for enhancing this portfolio
               website:
             </p>
-            <div class="color-blocks">
-              <div class="color-block">
-                Migrating the entire project to React for improved interactivity
-                and component-based architecture
-              </div>
-              <div class="color-block">
-                Implementing Tailwind CSS for more efficient and customizable
-                styling
-              </div>
-              <div class="color-block">
-                Adding more dynamic content and interactive elements to showcase
-                my projects
-              </div>
-              <div class="color-block">
-                Implementing a blog section to share my thoughts and experiences
-                in tech
-              </div>
-              <div class="color-block">
-                Optimizing performance and accessibility for an even better user
-                experience
-              </div>
-            </div>
+            <ul class="future-list">
+              <li>
+                <i class="fas fa-react"></i>
+                <span>Migrating to React for improved interactivity</span>
+              </li>
+              <li>
+                <i class="fas fa-paint-brush"></i>
+                <span>Implementing Tailwind CSS for efficient styling</span>
+              </li>
+              <li>
+                <i class="fas fa-cube"></i>
+                <span
+                  >Adding more dynamic content and interactive elements</span
+                >
+              </li>
+              <li>
+                <i class="fas fa-blog"></i>
+                <span
+                  >Implementing a blog section to share tech experiences</span
+                >
+              </li>
+              <li>
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Optimizing performance and accessibility</span>
+              </li>
+            </ul>
             <p>Stay tuned for these exciting updates!</p>
           </div>
         </div>
@@ -292,7 +292,6 @@
       </div>
     </footer>
 
-    <!-- Add this button just before the closing body tag -->
     <button
       id="scrollToTopBtn"
       class="scroll-to-top-btn"
@@ -301,133 +300,6 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script>
-      ScrollReveal().reveal(
-        '.hero-content, .project-card, .contact-item, .fun-facts, .skill-item, .future-plans-content',
-        {
-          delay: 200,
-          distance: '50px',
-          origin: 'bottom',
-          duration: 1000,
-          easing: 'cubic-bezier(0.5, 0, 0, 1)',
-          interval: 200,
-        }
-      );
-
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth',
-          });
-        });
-      });
-
-      // Animated subtitle
-      const subtitles = document.querySelectorAll('.animated-subtitle span');
-      let currentSubtitle = 0;
-
-      function changeSubtitle() {
-        subtitles[currentSubtitle].classList.remove('active');
-        currentSubtitle = (currentSubtitle + 1) % subtitles.length;
-        subtitles[currentSubtitle].classList.add('active');
-      }
-
-      setInterval(changeSubtitle, 3000);
-
-      // Skill progress bars animation
-      const skillBars = document.querySelectorAll('.skill-bar');
-      skillBars.forEach((bar) => {
-        const targetWidth = bar.getAttribute('data-width');
-        setTimeout(() => {
-          bar.style.width = targetWidth;
-        }, 500);
-      });
-
-      document.addEventListener('DOMContentLoaded', function () {
-        const phrases = [
-          'Problem Solver',
-          'CS Student',
-          'Web Developer',
-          'Tech Enthusiast',
-          'Innovator',
-        ];
-        const typedTextElement = document.getElementById('typed-text');
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typingSpeed = 100;
-
-        function typeText() {
-          const currentPhrase = phrases[phraseIndex];
-
-          if (isDeleting) {
-            typedTextElement.textContent = currentPhrase.substring(
-              0,
-              charIndex - 1
-            );
-            charIndex--;
-            typingSpeed = 50;
-          } else {
-            typedTextElement.textContent = currentPhrase.substring(
-              0,
-              charIndex + 1
-            );
-            charIndex++;
-            typingSpeed = 100;
-          }
-
-          if (!isDeleting && charIndex === currentPhrase.length) {
-            isDeleting = true;
-            typingSpeed = 1000; // Pause before deleting
-          } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-          }
-
-          setTimeout(typeText, typingSpeed);
-        }
-
-        typeText();
-      });
-
-      // Add this new code at the end of your script
-      const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-      const header = document.querySelector('header');
-
-      function toggleScrollToTopButton() {
-        const headerRect = header.getBoundingClientRect();
-        if (headerRect.bottom <= 0) {
-          scrollToTopBtn.classList.add('show');
-        } else {
-          scrollToTopBtn.classList.remove('show');
-        }
-      }
-
-      scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        });
-      });
-
-      window.addEventListener('scroll', toggleScrollToTopButton);
-
-      // Mobile menu toggle
-      const menuToggle = document.getElementById('menu-toggle');
-      const navMenu = document.getElementById('nav-menu');
-
-      menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-      });
-
-      // Close menu when a link is clicked
-      navMenu.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-          navMenu.classList.remove('show');
-        }
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
