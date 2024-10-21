@@ -1353,6 +1353,10 @@ iframe {
 #about {
   background-color: #f9fafb;
   padding: 4rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .about-content {
@@ -1360,6 +1364,9 @@ iframe {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about-card {
@@ -1371,6 +1378,7 @@ iframe {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
   height: 100%;
 }
@@ -1398,17 +1406,13 @@ iframe {
   color: #4b5563;
   line-height: 1.6;
   margin: 0;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
 }
 
 .about-card ul {
   list-style-type: none;
   padding-left: 0;
   text-align: left;
-  width: 100%;
 }
 
 .about-card li {

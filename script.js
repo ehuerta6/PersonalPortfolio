@@ -83,7 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
     'CS Student',
     'Web Developer',
     'Tech Enthusiast',
-    'Innovator',
+    'Coder',
+    'Software Engineer',
+    'Full-Stack Developer',
+    'Java Programmer',
   ];
   let phraseIndex = 0;
   let charIndex = 0;
