@@ -1,3 +1,23 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const announcementModal = document.getElementById('announcementModal');
+  const announcementOkBtn = document.getElementById('announcementOkBtn');
+
+  // Show the modal when the page loads
+  announcementModal.style.display = 'block';
+
+  // Hide the modal when OK button is clicked
+  announcementOkBtn.addEventListener('click', function () {
+    announcementModal.style.display = 'none';
+  });
+
+  // Hide the modal when clicking outside
+  announcementModal.addEventListener('click', function (e) {
+    if (e.target === announcementModal) {
+      announcementModal.style.display = 'none';
+    }
+  });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   // Smooth scrolling
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
